@@ -96,7 +96,7 @@ module Wunderlist
 
     def task_by_id(task_id)
       # res_task = self.request :get, 'api/v1/tasks', {id: attr[:task_id], list_id: attr[:list_id]}
-      res_task = self.request :get, 'api/v1/tasks/' + task_id
+      res_task = self.request :get, 'api/v1/tasks/' + task_id.to_s
       p res_task
       unless res_task['error']
         task = Wunderlist::Task.new(res_task)
