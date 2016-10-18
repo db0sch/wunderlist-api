@@ -15,7 +15,6 @@ module Wunderlist
       @created_at = attrs['created_at']
       @updated_at = attrs['updated_at']
       @revision = attrs['revision']
-      p "initialize !!"
     end
 
     private
