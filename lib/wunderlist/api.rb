@@ -94,16 +94,16 @@ module Wunderlist
       tasks
     end
 
-    def task_by_id(task_id)
-      res_task = self.request :get, 'api/v1/tasks', {:id => task_id}
+    def task_by_id(attr)
+      res_task = self.request :get, 'api/v1/tasks', {id: attr[:task_id], list_id: attr[:list_id]}
+      p res_task
       if !res_task.empty?
         res_task.each do |t|
           task = Wunderlist::Task.new(t)
           task.api = self
-          task
+          return task
         end
       end
-      task
     end
 
     def user()
